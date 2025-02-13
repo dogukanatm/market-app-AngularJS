@@ -1,0 +1,14 @@
+<div class="login-container">
+  <div class="login-box">
+    <h2>Giriş Yap</h2>
+    <div class="form-group">
+      <label>Kullanıcı Adı:</label>
+      <input type="text" [(ngModel)]="kullaniciAdi" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Şifre:</label>
+      <input type="password" [(ngModel)]="sifre" class="form-control">
+    </div>
+    <button (click)="girisYap()" class="btn btn-primary">Giriş Yap</button>
+  </div>
+</div>

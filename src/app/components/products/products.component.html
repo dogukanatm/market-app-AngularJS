@@ -1,0 +1,17 @@
+<div class="products-grid">
+  <div *ngFor="let product of products" class="product-card">
+    <div class="card h-100">
+      <div class="product-icon" [innerHTML]="product.imageUrl"></div>
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="price-box">
+            <span class="final-price">{{product.price | currency:'TRY':'symbol-narrow':'1.2-2'}}</span>
+          </div>
+          <button class="btn btn-primary" (click)="addToCart(product)">Sepete Ekle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

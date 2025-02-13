@@ -1,0 +1,21 @@
+<div class="cart-container">
+  <h2>Sepetim</h2>
+  <div *ngIf="cartItems.length === 0" class="empty-cart">
+    Sepetiniz boş
+  </div>
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <div class="item-details">
+      <h3>{{item.name}}</h3>
+      <div class="quantity-controls">
+        <button (click)="decreaseQuantity(item)" class="quantity-btn">-</button>
+        <span class="quantity">{{item.quantity}}</span>
+        <button (click)="increaseQuantity(item)" class="quantity-btn">+</button>
+      </div>
+      <p>Fiyat: {{item.price * item.quantity}} TL</p>
+    </div>
+    <button (click)="removeFromCart(item)" class="remove-btn">Kaldır</button>
+  </div>
+  <div *ngIf="cartItems.length > 0" class="total">
+    <h4>Toplam: {{getTotalAmount()}} TL</h4>
+  </div>
+</div>
