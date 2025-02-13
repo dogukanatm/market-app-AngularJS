@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -31,6 +31,11 @@ import { AuthService } from '../../services/auth.service';
         <button type="submit" [disabled]="!loginForm.form.valid">
           Giriş Yap
         </button>
+
+        <p class="register-link">
+          Hesabınız yok mu? 
+          <a routerLink="/register">Kayıt Ol</a>
+        </p>
       </form>
     </div>
   `,
@@ -68,9 +73,21 @@ import { AuthService } from '../../services/auth.service';
     button:disabled {
       background-color: #ccc;
     }
+    .register-link {
+      text-align: center;
+      margin-top: 1rem;
+      color: #666;
+    }
+    .register-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .register-link a:hover {
+      text-decoration: underline;
+    }
   `],
   standalone: true,
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, RouterModule]
 })
 export class LoginComponent {
   username = '';

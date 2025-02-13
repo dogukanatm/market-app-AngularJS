@@ -46,10 +46,16 @@ import { CartService, CartItem } from './services/cart.service';
             </div>
           </a>
 
-          <a *ngIf="!isLoggedIn" routerLink="/login" class="auth-btn">
-            <i class="bi bi-person"></i>
-            <span>Giriş Yap</span>
-          </a>
+          <ng-container *ngIf="!isLoggedIn">
+            <a routerLink="/login" class="auth-btn">
+              <i class="bi bi-person"></i>
+              <span>Giriş Yap</span>
+            </a>
+            <a routerLink="/register" class="auth-btn">
+              <i class="bi bi-person-plus"></i>
+              <span>Kayıt Ol</span>
+            </a>
+          </ng-container>
 
           <div *ngIf="isLoggedIn" class="user-menu" ngbDropdown>
             <button class="user-btn" ngbDropdownToggle>

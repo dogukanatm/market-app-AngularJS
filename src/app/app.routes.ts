@@ -16,5 +16,10 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'orders/:id', component: OrderTrackingComponent, canActivate: [AuthGuard] },
+  {
+    path: 'register',
+    loadComponent: () => import('./components/register/register.component')
+      .then(m => m.RegisterComponent)
+  },
   { path: '**', redirectTo: '' }  // Bilinmeyen rotaları ana sayfaya yönlendir
 ];
